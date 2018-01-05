@@ -17,7 +17,6 @@
 <body>
 <h1 class="myHeader">Welcome to Spittr!</h1>
 
-<c:url value="/resources/style.css" />
 
 <a href="<c:url value="/spittr/spittles" /> ">Spittles</a>
 <a href="<c:url value="/spittr/spitter/register"/>">Register </a>
