@@ -4,7 +4,9 @@ package spittr;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Spitter {
@@ -12,19 +14,23 @@ public class Spitter {
     private Long id;
 
     @NotNull
-    @Size(min=4, max=16)
+    @Size(min=4, max=16, message = "{username.size}")
     private String username;
 
+    //* zero or more times
+    //? once or not at all
+    //+ one or more times
     @NotNull
-    @Size(min=4, max=24)
+    @Size(min=4, max=24, message = "{password.size}")
+    @Pattern(regexp = ".*[0-9].*", message = "{password.pattern}")
     private String password;
 
     @NotNull
-    @Size(min=4, max=24)
+    @Size(min=3, max=24, message = "{firstname.size}")
     private String firstname;
 
-    @NotNull
-    @Size(min=4, max=24)
+    @NotEmpty
+    @Size(min=3, max=24, message = "{lastname.size}")
     private String lastname;
 
     public Spitter() {}

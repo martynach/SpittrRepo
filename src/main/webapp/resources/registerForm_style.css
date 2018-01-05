@@ -1,15 +1,18 @@
 
-
-span.messageError {
-    color: blue;
+.registerForm input {
+    margin: 3px;
+}
+.spanError {
+    color: #b30000;
 }
 
-label.labelError {
-
+.labelError {
+    text-decoration: underline;
 }
 
-input.inputError {
-
+.inputError {
+    background-color: #ffcccc;
+    border: #b30000 1px solid;
 }
 
 

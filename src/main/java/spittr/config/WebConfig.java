@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -23,6 +25,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         viewResolver.setSuffix(".jsp");
         viewResolver.setExposeContextBeansAsAttributes(true); //TODO what is it? :D
         return viewResolver;
+    }
+
+    @Bean
+    public TilesConfigurer tilesConfigurer() {
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        String [] definitions = new String[] { "/WEB-INF/layout/tiles.xml" };
+        tilesConfigurer.setDefinitions(definitions);
+        tilesConfigurer.setCheckRefresh(true);
+        return  tilesConfigurer;
+    }
+
+    @Bean
+    public TilesViewResolver tilesViewResolver() {
+        return  new TilesViewResolver();
     }
 
 
